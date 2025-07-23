@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { MdReportProblem, MdOutlineWarning, MdAccessTime, MdLocationOn, MdChevronRight } from 'react-icons/md';
+import { MdReportProblem, MdAccessTime, MdChevronRight } from 'react-icons/md';
 import { BiSolidDoorOpen, BiSolidCctv } from "react-icons/bi";
 import { GiPistolGun } from "react-icons/gi";
 import { FaPlus, FaUserGear, FaCheckDouble } from "react-icons/fa6";
