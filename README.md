@@ -1,25 +1,21 @@
 # CCTV Incident Dashboard
 
-A modern CCTV incident dashboard built with Next.js 15, Prisma, and Tailwind CSS.
+A modern CCTV incident dashboard built with Next.js 15, Prisma, Tailwind CSS, and Supabase (Postgres).
 
 ---
 
 ## 🚀 Deployment Instructions
 
-1. **Set up MySQL database:**
+1. **Set up Supabase (Postgres) database:**
 
-   - Make sure MySQL is installed and running on your machine.
-   - Create the database and user by running the following SQL commands in your MySQL client:
-     ```sql
-     CREATE DATABASE cctv_db;
-     CREATE USER 'cctv_user'@'localhost' IDENTIFIED BY 'moin';
-     GRANT ALL PRIVILEGES ON cctv_db.* TO 'cctv_user'@'localhost';
-     FLUSH PRIVILEGES;
-     ```
+   - Go to [https://app.supabase.com/](https://app.supabase.com/) and create a new project.
+   - In your Supabase dashboard, go to **Settings → Database** and copy the **Session pooler** connection string (for IPv4 compatibility).
    - Your `.env` should contain:
      ```
-     DATABASE_URL="mysql://cctv_user:moin@localhost:3306/cctv_db"
+     DATABASE_URL="postgresql://postgres.[YOUR_PROJECT_ID]:[YOUR-PASSWORD]@[REGION].pooler.supabase.com:5432/postgres"
      ```
+    (Replace `YOUR_PROJECT_ID`, `PASSWORD`, and `REGION` with your actual values. URL-encode your password if it contains special characters.)
+
 
 2. **Clone the repository:**
    ```sh
@@ -32,7 +28,7 @@ A modern CCTV incident dashboard built with Next.js 15, Prisma, and Tailwind CSS
    ```
 4. **Run migrations:**
    ```sh
-   npx prisma migrate deploy
+   npx prisma migrate dev --name init
    ```
 5. **Seed the database:**
    ```sh
@@ -42,19 +38,18 @@ A modern CCTV incident dashboard built with Next.js 15, Prisma, and Tailwind CSS
    ```sh
    npm run dev
    ```
+
 ### .env Example
 
 ```
-DATABASE_URL="mysql://cctv_user:moin@localhost:3306/cctv_db"
+DATABASE_URL="postgresql://postgres.[YOUR_PROJECT_ID]:[YOUR-PASSWORD]@[REGION].pooler.supabase.com:5432/postgres"
 ```
 
 ---
 
 ## 🌐 Live URL
 
-- [Your Live Demo](https://cctv-ui.netlify.app
-Resources
-)
+- [Your Live Demo](https://cctv-ui-kmk.netlify.app/)
 
 ---
 
@@ -62,10 +57,11 @@ Resources
 
 - **Next.js 15 App Router**: Modern React framework for SSR, routing, and API routes.
 - **Prisma ORM**: Type-safe database access and migrations.
-- **MySQL**: Used as the production database for scalable, relational data storage.
+- **Supabase (Postgres)**: Used as the production database for scalable, relational data storage.
 - **Tailwind CSS**: Utility-first styling for rapid, responsive UI.
 - **React Icons**: For consistent, modern iconography.
 - **Optimistic UI**: Incident resolve action updates UI instantly for better UX.
+- **Netlify**: For seamless cloud deployment.
 
 ---
 
